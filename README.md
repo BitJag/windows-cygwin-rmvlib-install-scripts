@@ -48,19 +48,36 @@ ________________
 ## Installing
 
 
-1- install cygwin 32-bit.  During installation, add the following additional packages on top of the default packages that will be installed (latest versions):
+Install CYGWIN **32-bit**.  
+
+    https://cygwin.com/install.html
+
+During installation, add the following additional packages on top of the default packages that will be installed (latest versions):
     
-    make, gcc-core, git, libmpfr4, libmpc3
+    make, gcc-core, git, libmpfr4, libmpc3, doxygen
 
-2 - after downloading and installing cygwin, download and install the m68k-atari-mint cross compiler tools executable script by Vincent Riviere from the following link  (name should look something like 'cross-mint-cygwin-20180704-setup.exe.'):
+Download and install the m68k-atari-mint cross compiler tools  from the following link near the top of the page (The name of the download should look something like ' m68k-atari-mint-base-20200501-cygwin32.tar.xz'):
 
-    http://vincent.riviere.free.fr/soft/m68k-atari-mint/
- 
-3 - Download this script and it's assets and run from your home folder inside a 32-bit cygwin install, only after you have done the previous steps.  Using the following command:
+    https://tho-otto.de/crossmint.php
+    
+Copy this downloaded .TAR file to your home folder in cygwin.  This is usually located at C:\cygwin\home\<user name>
 
+Open CYGWIN and extract into the root of cygwin with the following command:
+
+    tar -xvf ./m68k-atari-mint-base-20200501-cygwin32.tar.xz -C /
+    
+Clone the git repository for install script with the following command
+
+    git clone https://github.com/lachoneus/windows-cygwin-rmvlib-install-scripts.git
+
+Navigate into the folder downloaded by git and run the following commands:
+
+    cd windows-cygwin-rmvlib-install-scripts
     sh ./rmvlib_install.sh
+    
+Restart CYGWIN before testing so that the JAGPATH environment variable, installed by the script earlier, takes effect.
 
-4 - After the script finishes, and before you can build the example program, ***restart CYGWIN***.  This will ensure that the new $JAGPATH environment variable is loaded from ~/.bashrc, allowing the current Makefile.config file to properly build the example program. In CYGWIN, navigate to the following location in your home folder and run the make command.
+Testing - In CYGWIN, navigate to the following location in your home folder and run the make command.
 
     cd ~/Jaguar/example_programs/generic_example
     make
@@ -69,13 +86,9 @@ If you don't get any errors while compiling and linking the example program, eve
 
 ## Uninstall
 Just delete the folder c:/cygwin and start from the beginning.  ***!!Be sure to backup your source code!!***
-
-________________
-## Notes
-If you examine the install script, you will see some slight modifications to specific source files in the Remover's Libaray (RMVLIB). These small alterations are needed to get RMAC to properly compile these specific files in RMVLIB. These modifications are a good first place to check if the script breaks in the future.
 ________________
 ________________
 
 # Additional Jaguar Development Binaries Linux Installer
 
-In development.  Currently, if you want to run virtualjaguar, jcp or other useful tools for Jaguar development; you will need to download, build, and install these tools yourself.
+In development.  Currently, if you want to run virtualjaguar, jcp or other useful tools for Jaguar development; you will need to download, build, and install, or find executables of these tools yourself.
