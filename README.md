@@ -1,7 +1,7 @@
 # Introduction
 These scripts were put together to make building and installing a specific Atari Jaguar development environment more conveinient. They were also created as way of retracing my steps in the future in case I need to build/install a specific tool or application included in these scripts.
 
-There are no guarantees provided when you use this script.  These scripts will probably break and cease to work as packages update or disappear from the Ubuntu repositories over time.  Or build processes and source files for tools/applications change.
+There are no guarantees provided when you use this script.  These scripts will probably break and cease to work as packages update or links to downloads change or disappear over time.
 
 The only updates you can expect from me for these scripts are if and when I feel that I need to update them, but feel free to leave an issue in the tracker. I will do my best to help. Or, feel free to alter the script for your own needs.
 
@@ -41,7 +41,7 @@ source: https://github.com/sbriais/rmvlib
 ________________
 
 ## Requirements
-Windows with an internet connection. This script has only been tested on Windows 10 (6/13/2020).  32-bit Cygwin and m68k-atari-mint cross-tools is required to be installed before running this script in Cygwin.
+Windows with an internet connection. This script has only been tested on Windows 10 (6/13/2020).  A 32-bit Cygwin installation is also required.
 
 ________________
 
@@ -81,4 +81,15 @@ ________________
 
 # Additional Jaguar Development Binaries Linux Installer
 
-In development.  Currently, if you want to run virtualjaguar, jcp or other useful tools for Jaguar development; you will need to download, build, and install, or find executables of these tools yourself.
+The additional_tools_install.sh script installs VirtualJaguar (Atari Jaguar emulator), jag-image-converter (Removers graphics conversion tool. Originally called "converter"), and lz77 (used for packing data for your Jaguar programs).  After install you can run "make vj" which will build your program and automatically run your program with VirtualJaguar.  lz77 and jag-image-converter can be inivoked in any directory to convert and pack graphics and other data.
+
+Before running the additional_tools_install.sh script in Cygwin, we need some additional packages installed. Run the Cygwin Setup executable you used to install Cygwin with, and select and install the following additional packages.
+
+    atool, p7zip, unzip, gcc-g++
+
+NOTE: Make sure that the version you number for gcc-g++ is the same as gcc-core.
+
+Afterwards, open Cygwin and navigate to the the appropriate folder with the script and run it.
+
+    cd windows-cygwin-rmvlib-install-scripts
+    sh ./additional_tools_install.sh
