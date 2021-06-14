@@ -5,18 +5,18 @@ There are no guarantees provided when you use this script.  These scripts will p
 
 The only updates you can expect from me for these scripts are if and when I feel that I need to update them, but feel free to leave an issue in the tracker. I will do my best to help. Or, feel free to alter the script for your own needs.
 
-This script will install the Removers Library, RMAC, RLN, and the necessary cross compiler tools inside a 32-bit CYGWIN environment in Windows.
+This script will install the Removers Library, RMAC, RLN, and the necessary cross compiler tools inside a 32-bit Cygwin environment in Windows.
 
 # RMAC/RLN/JLIBC/RMVLIB Installer Script
 (rmvlib_install.sh)
 
 ## About
-This script will install a working Atari Jaguar development environment, based on JLIBC and the Remover's Library, on a Windows machine with 32-bit CYGWIN and Vincent Rivière's m68k-atari-mint cross-tools already installed.
+This script will install a working Atari Jaguar development environment, based on JLIBC and the Remover's Library, on a Windows machine with 32-bit Cygwin and m68k-atari-mint cross-tools already installed.
 
 ________________
 
 ## Installed Development Tools
-The following tools will be built and installed to **<user's home folder>/Jaguar/**.
+The following tools will be built and installed to **c:\cygwin\home\<user's home folder>\Jaguar\**.
 
 ### RMAC
 A modern version of Atari's old Madmac assembler. Created by Reboot.
@@ -41,32 +41,22 @@ source: https://github.com/sbriais/rmvlib
 ________________
 
 ## Requirements
-Windows with an internet connection. This script has only been tested on Windows 10 (5/18/2020).  32-bit CYGWIN and Vincent Rivière's m68k-atari-mint cross-tools is required to be installed before running this script in CYGWIN.
+Windows with an internet connection. This script has only been tested on Windows 10 (6/13/2020).  32-bit Cygwin and m68k-atari-mint cross-tools is required to be installed before running this script in Cygwin.
 
 ________________
 
 ## Installing
 
 
-Install CYGWIN **32-bit**.  
+Install Cygwin **32-bit**.  
 
     https://cygwin.com/install.html
 
 During installation, add the following additional packages on top of the default packages that will be installed (latest versions):
     
-    make, gcc-core, git, libmpfr4, libmpc3, doxygen
-
-Download and install the m68k-atari-mint cross compiler tools  from the following link near the top of the page (The name of the download should look something like ' m68k-atari-mint-base-20200501-cygwin32.tar.xz'):
-
-    https://tho-otto.de/crossmint.php
+    wget, make, gcc-core, git, libmpfr4, libmpc3, doxygen
     
-Copy this downloaded .TAR file to your home folder in cygwin.  This is usually located at C:\cygwin\home\<user name>
-
-Open CYGWIN and extract into the root of cygwin with the following command:
-
-    tar -xvf ./m68k-atari-mint-base-20200501-cygwin32.tar.xz -C /
-    
-Clone the git repository for install script with the following command
+Open Cygwin and clone the git repository for install script with the following command
 
     git clone https://github.com/lachoneus/windows-cygwin-rmvlib-install-scripts.git
 
@@ -75,9 +65,9 @@ Navigate into the folder downloaded by git and run the following commands:
     cd windows-cygwin-rmvlib-install-scripts
     sh ./rmvlib_install.sh
     
-Restart CYGWIN before testing so that the JAGPATH environment variable, installed by the script earlier, takes effect.
+Restart Cygwin before testing so that the JAGPATH environment variable, installed by the script earlier, takes effect.
 
-Testing - In CYGWIN, navigate to the following location in your home folder and run the make command.
+Testing - In Cygwin, navigate to the following location in your home folder and run the make command.
 
     cd ~/Jaguar/example_programs/generic_example
     make
